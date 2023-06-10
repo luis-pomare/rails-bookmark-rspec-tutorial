@@ -50,7 +50,13 @@ gem "bootsnap", require: false
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
+  gem 'rspec-rails'
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
+end
+
+group :test do
+  gem 'capybara'
+  gem 'webdrivers', '~> 4.0', require: false
 end
 
 group :development do
