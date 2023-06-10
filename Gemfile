@@ -56,7 +56,6 @@ end
 
 group :test do
   gem 'capybara'
-  gem 'webdrivers', '~> 4.0', require: false
 end
 
 group :development do
