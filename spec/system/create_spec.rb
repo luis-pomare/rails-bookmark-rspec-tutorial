@@ -12,4 +12,21 @@ RSpec.describe 'create bookmark', type: :system do
     # No bookmark record is created
     expect(Bookmark.count).to eq(0)
   end
+
+  scenario 'valid title and url' do
+    visit new_bookmark_path
+    # fill in text fields with specified string
+    fill_in 'Title', with: 'RubyYagi'
+    fill_in 'Url', with: 'https://rubyyagi.com'
+    click_button 'Create Bookmark'
+    
+    # The page should show success message
+    expect(page).to have_content("Bookmark was successfully created")
+
+    # 1 new bookmark record is created
+    expect(Bookmark.count).to eq(1)
+    
+    # Optionally, you can check the latest record data
+    expect(Bookmark.last.title).to eq('RubyYagi')
+  end
 end
